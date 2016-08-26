@@ -18,15 +18,15 @@ while True:
     if MESSAGE == "LOOPTEST":
         while True:
             sock.sendto("LOOPTEST", (UDP_IP, UDP_PORT))
-            ModifiedMessage, serverAddress = sock.recvfrom(2048)
-            print "Received message:", modifiedMessage
+            modifiedMessage, serverAddress = sock.recvfrom(2048)
+            print "[Server]: ", modifiedMessage
 
     if MESSAGE == "SPAMTEST":
         count = 0
         while MESSAGE == "SPAMTEST" and count < 100000:
             sock.sendto(str(count), (UDP_IP, UDP_PORT))
-            ModifiedMessage, serverAddress = sock.recvfrom(2048)
-            print "Received message:", modifiedMessage
+            modifiedMessage, serverAddress = sock.recvfrom(2048)
+            print "[Server]: ", modifiedMessage
             count += 1
             if count == 100000:
                 MESSAGE = raw_input("Input Message:")
